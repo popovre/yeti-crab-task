@@ -10,3 +10,15 @@
   display: flex;
   flex-direction: column;
 }
+
+.root {
+  @include content;
+  padding-block: var(--mobile-big-padding-block);
+}
+
+.tableWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}

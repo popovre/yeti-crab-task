@@ -23,7 +23,7 @@ export default function RootLayout({
       <body className={clsx(inter.className, styles.body, robotoMono.variable)}>
         <StoreProvider>
           <HeaderContainer />
-          <main>{children}</main>
+          <main className={clsx(styles.main)}>{children}</main>
           <FooterContainer />
         </StoreProvider>
       </body>
