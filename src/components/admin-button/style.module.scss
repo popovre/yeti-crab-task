@@ -1,0 +1,11 @@
+.adminButton {
+  // background-color: sandybrown;
+  transition: background-color 0.2s 0.1s;
+  border-radius: var(--mobile-low-border-radius);
+  padding: 5px;
+  outline: 2px solid var(--black1);
+
+  &:hover {
+    background-color: rgb(183, 161, 161);
+  }
+}
