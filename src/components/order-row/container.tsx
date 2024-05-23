@@ -1,14 +1,21 @@
 import React from 'react';
 import OrderRow from './component';
-import { getOrderById, updateOrderById } from '@/services/api';
+import { getOrderContentById, updateOrderById } from '@/services/api';
 
 const OrderRowContainer = async (props) => {
-  const onUpdate = async (orderId, updatedOrder) => {
+  const onUpdate = async (contentId, updatedContent) => {
     'use server';
-    await updateOrderById(orderId, updatedOrder);
+    await updateOrderById(contentId, updatedContent);
   };
 
-  return <OrderRow {...props} onUpdate={onUpdate} />;
+  const onGetContent = async (contentId) => {
+    'use server';
+    return await getOrderContentById(contentId);
+  };
+
+  return (
+    <OrderRow {...props} onUpdate={onUpdate} onGetContent={onGetContent} />
+  );
 };
 
 export default OrderRowContainer;

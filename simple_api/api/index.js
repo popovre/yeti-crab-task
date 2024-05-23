@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { nanoid } = require('nanoid');
-const { orders, comments } = require('./normalized-mocks');
+const { orders, comments, contents } = require('./normalized-mocks');
 const { reply, getById, updateById } = require('./utils');
 
 router.get('/orders', (req, res, next) => {
@@ -19,6 +19,17 @@ router.get('/order/:orderId', (req, res, next) => {
   reply(res, order);
 });
 
+router.get('/content/:contentId', (req, res, next) => {
+  console.log('request', req.params);
+  const contentId = req.params?.contentId;
+  let content;
+
+  if (contentId) {
+    content = getById(contents)(contentId);
+  }
+  reply(res, content);
+});
+
 router.patch('/orders/:orderId', (req, res, next) => {
   console.log('request 500');
 
@@ -31,6 +42,23 @@ router.patch('/orders/:orderId', (req, res, next) => {
 
   if (orderId) {
     updatedOrder = updateById(orders)(orderId, body);
+  }
+
+  reply(res, updatedOrder);
+});
+
+router.patch('/content/:contentId', (req, res, next) => {
+  console.log('request 500 content');
+
+  const body = req.body;
+  const contentId = req.params?.contentId;
+  console.log(contentId);
+  let updatedContent;
+
+  console.log(body, 'body');
+
+  if (contentId) {
+    updatedContent = updateById(contents)(contentId, body);
   }
 
   reply(res, updatedOrder);

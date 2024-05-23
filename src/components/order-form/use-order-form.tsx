@@ -53,11 +53,11 @@ const reducer = (state, { type, payload }) => {
     //     ...state,
     //     date: payload,
     //   };
-    // case 'setPhone':
-    //   return {
-    //     ...state,
-    //     client: payload,
-    //   };
+    case 'setPhone':
+      return {
+        ...state,
+        client: payload,
+      };
     case 'setDriver':
       return {
         ...state,
@@ -68,11 +68,11 @@ const reducer = (state, { type, payload }) => {
     //     ...state,
     //     code: payload,
     //   };
-    // case 'setClientName':
-    //   return {
-    //     ...state,
-    //     clientName: payload,
-    //   };
+    case 'setClientName':
+      return {
+        ...state,
+        clientName: payload,
+      };
 
     default:
       return state;
@@ -102,10 +102,10 @@ export const useReviewForm = (initialValue = initialState, orderId) => {
   //   (event) => dispatch({ type: 'setDate', payload: event.target.value }),
   //   []
   // );
-  // const setPhone = useCallback(
-  //   (event) => dispatch({ type: 'setPhone', payload: event.target.value }),
-  //   []
-  // );
+  const setPhone = useCallback(
+    (event) => dispatch({ type: 'setPhone', payload: event.target.value }),
+    []
+  );
   const setDriver = useCallback(
     (event) => dispatch({ type: 'setDriver', payload: event.target.value }),
     []
@@ -114,17 +114,17 @@ export const useReviewForm = (initialValue = initialState, orderId) => {
   //   (event) => dispatch({ type: 'setCode', payload: event.target.value }),
   //   []
   // );
-  // const setClientName = useCallback(
-  //   (event) => dispatch({ type: 'setClientName', payload: event.target.value }),
-  //   []
-  // );
+  const setClientName = useCallback(
+    (event) => dispatch({ type: 'setClientName', payload: event.target.value }),
+    []
+  );
 
   return {
     form,
-    // setClientName,
+    setClientName,
     setDriver,
     // setCode,
-    // setPhone,
+    setPhone,
     // setDate,
     // setNumber,
     // setId,

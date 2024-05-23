@@ -12,7 +12,12 @@ export const getOrderById = async (orderId) => {
   return response.json();
 };
 
-export const updateOrderById = async (orderId, data) => {
+export const getOrderContentById = async (contentId) => {
+  const response = await fetch(`${BASE_URL}/content/${contentId}`);
+  return response.json();
+};
+
+export const updateOrderById = async (contentId, data) => {
   const requestOptions = {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
@@ -21,6 +26,6 @@ export const updateOrderById = async (orderId, data) => {
 
   // console.log(requestOptions);
 
-  await fetch(`${BASE_URL}/orders/${orderId}`, requestOptions);
-  revalidateTag('orders');
+  await fetch(`${BASE_URL}/content/${contentId}`, requestOptions);
+  revalidateTag('content');
 };

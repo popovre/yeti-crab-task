@@ -1,61 +1,39 @@
 const normalizedOrders = [
   {
     id: 'a757a0e9-03c1-4a2a-b384-8ac21dbe2fb2',
-    date: 1,
-    clientName: 'Вкусно и точка',
-    number: Math.floor(Math.random() * 99 + 1),
-    driver: 'Matt',
-    phone: '123456789',
-    status: 'in deliver',
     code: Math.floor(Math.random() * (10000 - 1000) * 1000),
-    comments: [
-      'd75f762a-eadd-49be-8918-ed0daa8dd024',
-      'c3cb8f92-a2ed-4716-92a1-b6ea813e9049',
-      'bd129641-c0eb-432b-84b6-8b81d2930358',
-    ],
+    status: 'in deliver',
+    date: Date.now(),
+    number: Math.floor(Math.random() * 99 + 1),
+
+    content: '5909796d-5030-4e36-adec-68b8f9ec2d96',
   },
   {
     id: 'bb8afbec-2fec-491f-93e9-7f13950dd80b',
-    number: Math.floor(Math.random() * 99 + 1),
-    driver: 'Andrew',
-    phone: '123456789',
-    status: 'in deliver',
     code: Math.floor(Math.random() * (10000 - 1000) * 1000),
-    date: 2,
-    clientName: 'Homeslice',
-    comments: [
-      '25402233-0095-49ea-9939-1e67ed89ffb9',
-      '90902233-0095-49ea-9939-1e67ed89ffb9',
-    ],
+    status: 'in deliver',
+    date: Date.now(),
+    number: Math.floor(Math.random() * 99 + 1),
+
+    content: '429dea85-11dd-4054-a31e-c60c92e17255',
   },
   {
     id: '982bfbce-c5e0-41a0-9f99-d5c20ecee49d',
     number: Math.floor(Math.random() * 99 + 1),
-    driver: 'Kole',
-    phone: '123456789',
     status: 'in deliver',
+    date: Date.now(),
     code: Math.floor(Math.random() * (10000 - 1000) * 1000),
-    date: 3,
-    clientName: 'Fabrique',
-    comments: [
-      '08c9ffa0-d003-4310-9e15-20978743296e',
-      '64a4967c-2080-4a99-9074-4655a4569a95',
-      '4bc8528e-26d1-46c3-a522-8e18d10c8c84',
-    ],
+
+    content: 'dfb982e9-b432-4b7d-aec6-7f6ff2e6af54',
   },
   {
     id: 'd9241927-09e1-44f3-8986-a76346869037',
     number: Math.floor(Math.random() * 99 + 1),
-    driver: 'Khan',
-    phone: '123456789',
     status: 'in deliver',
+    date: Date.now(),
     code: Math.floor(Math.random() * (10000 - 1000) * 1000),
-    date: 4,
-    clientName: 'Flat Iron',
-    comments: [
-      '6c02c2ce-b868-4191-b4a7-8686429f4bac',
-      '99bb6fbb-e53b-4b7e-b9c2-23b63b77385d',
-    ],
+
+    content: '53b642d7-5e86-4717-a466-0640a1dee076',
   },
 ];
 
@@ -113,21 +91,53 @@ const normalizedComments = [
   },
 ];
 
-const normalizedReviews = [
+const normalizedOrderContents = [
   {
     id: '5909796d-5030-4e36-adec-68b8f9ec2d96',
-    userId: 'a304959a-76c0-4b34-954a-b38dbf310360',
-    text: 'Not bad',
-    rating: 5,
+    clientName: 'Вкусно и точка',
+    driver: 'Matt',
+    phone: '123456789',
+    comments: [
+      'd75f762a-eadd-49be-8918-ed0daa8dd024',
+      'c3cb8f92-a2ed-4716-92a1-b6ea813e9049',
+      'bd129641-c0eb-432b-84b6-8b81d2930358',
+    ],
   },
   {
     id: '429dea85-11dd-4054-a31e-c60c92e17255',
-    userId: 'dfb982e9-b432-4b7d-aec6-7f6ff2e6af54',
-    text: 'No burgers',
-    rating: 3,
+    driver: 'Kole',
+    phone: '123456789',
+    clientName: 'Fabrique',
+    comments: [
+      '08c9ffa0-d003-4310-9e15-20978743296e',
+      '64a4967c-2080-4a99-9074-4655a4569a95',
+      '4bc8528e-26d1-46c3-a522-8e18d10c8c84',
+    ],
+  },
+  {
+    id: 'dfb982e9-b432-4b7d-aec6-7f6ff2e6af54',
+    driver: 'Khan',
+    phone: '123456789',
+    clientName: 'Flat Iron',
+    comments: [
+      '6c02c2ce-b868-4191-b4a7-8686429f4bac',
+      '99bb6fbb-e53b-4b7e-b9c2-23b63b77385d',
+    ],
   },
   {
     id: '53b642d7-5e86-4717-a466-0640a1dee076',
+    driver: 'Andrew',
+    phone: '123456789',
+    clientName: 'Homeslice',
+    comments: [
+      '25402233-0095-49ea-9939-1e67ed89ffb9',
+      '90902233-0095-49ea-9939-1e67ed89ffb9',
+    ],
+  },
+];
+
+const normalizedReviews = [
+  {
     userId: '20bed9b5-9c7b-4771-8221-75b74ed1904a',
     text: 'Perfect Margarita',
     rating: 5,
@@ -174,6 +184,7 @@ const normalizedUsers = [
     status: 'in deliver',
     code: Math.floor(Math.random() * (10000 - 1000) * 1000),
 
+    status: 'in deliver',
     date: 1,
     clientName: 'Antony',
   },
@@ -186,6 +197,7 @@ const normalizedUsers = [
     status: 'in deliver',
     code: Math.floor(Math.random() * (10000 - 1000) * 1000),
 
+    status: 'in deliver',
     date: 1,
     clientName: 'Diana',
   },
@@ -198,6 +210,7 @@ const normalizedUsers = [
     status: 'in deliver',
     code: Math.floor(Math.random() * (10000 - 1000) * 1000),
 
+    status: 'in deliver',
     date: 1,
     clientName: 'Lolly',
   },
@@ -210,6 +223,7 @@ const normalizedUsers = [
     status: 'in deliver',
     code: Math.floor(Math.random() * (10000 - 1000) * 1000),
 
+    status: 'in deliver',
     date: 1,
     clientName: 'Agata',
   },
@@ -222,6 +236,7 @@ const normalizedUsers = [
     status: 'in deliver',
     code: Math.floor(Math.random() * (10000 - 1000) * 1000),
 
+    status: 'in deliver',
     date: 1,
     clientName: 'Rebeca',
   },
@@ -234,6 +249,7 @@ const normalizedUsers = [
     status: 'in deliver',
     code: Math.floor(Math.random() * (10000 - 1000) * 1000),
 
+    status: 'in deliver',
     date: 1,
     clientName: 'Sam',
   },
@@ -242,4 +258,5 @@ const normalizedUsers = [
 module.exports = {
   comments: normalizedComments,
   orders: normalizedOrders,
+  contents: normalizedOrderContents,
 };

@@ -5,9 +5,14 @@ import React, { useState } from 'react';
 import styles from './style.module.scss';
 import { useSelector } from 'react-redux';
 import OrderFormContainer from '../order-form/container';
+import Loader from '../loader/component';
 
-const OrderRow = ({ order, onUpdate }) => {
+const OrderRow = ({ order, onUpdate, onGetContent }) => {
   const [showForm, setShowForm] = useState(false);
+
+  const handleMoreButtonClick = () => {
+    setShowForm(!showForm);
+  };
 
   const admin = useSelector((state) => state.admin.admin);
 
@@ -24,25 +29,29 @@ const OrderRow = ({ order, onUpdate }) => {
             {order?.id}
           </div>
           <div>
-            <span>From:</span>
-            <span>{order?.clientName}</span>
+            <span>Date:</span>
+            <span>{order?.date}</span>
           </div>
         </div>
         <div className={clsx(styles.status)}>
-          <span>{order.status}</span>
+          <span>{order?.status}</span>
         </div>
       </div>
       {admin && (
         <button
           onClick={() => {
-            setShowForm(!showForm);
+            handleMoreButtonClick();
           }}
         >
           подробнее
         </button>
       )}
       {admin && showForm && (
-        <OrderFormContainer onUpdate={onUpdate} order={order} />
+        <OrderFormContainer
+          contentId={order?.content}
+          onUpdate={onUpdate}
+          onGetContent={onGetContent}
+        />
       )}
     </div>
   );
