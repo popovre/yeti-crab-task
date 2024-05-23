@@ -8,12 +8,13 @@ import { useDispatch, useSelector } from 'react-redux';
 const AdminButton = ({ children }) => {
   const dispatch = useDispatch();
   const admin = useSelector((state) => state.admin.admin);
+
   return (
     <button
       onClick={() => {
         dispatch(toggleAdmin());
       }}
-      className={clsx(styles.adminButton)}
+      className={clsx(styles.adminButton, { [styles.admin]: admin })}
     >
       {children}
     </button>

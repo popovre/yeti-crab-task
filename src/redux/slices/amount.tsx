@@ -1,7 +1,7 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit';
 
-export const tableSlice = createSlice({
-  name: 'table',
+export const amountSlice = createSlice({
+  name: 'amount',
   initialState: { ordersAmount: 0 },
   reducers: {
     increment(state) {
@@ -16,4 +16,4 @@ export const tableSlice = createSlice({
   },
 });
 
-export const { increment, decrement, setAmount } = tableSlice.actions;
+export const { increment, decrement, setAmount } = amountSlice.actions;

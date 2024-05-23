@@ -26,6 +26,8 @@ export default function RootLayout({
           <main className={clsx(styles.main)}>{children}</main>
           <FooterContainer />
         </StoreProvider>
+        <div id="modal-container" />
+        <div id="popover-container" />
       </body>
     </html>
   );

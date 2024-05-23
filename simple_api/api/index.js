@@ -19,6 +19,23 @@ router.get('/order/:orderId', (req, res, next) => {
   reply(res, order);
 });
 
+router.patch('/orders/:orderId', (req, res, next) => {
+  console.log('request 500');
+
+  const body = req.body;
+  const orderId = req.params?.orderId;
+  console.log(orderId);
+  let updatedOrder;
+
+  console.log(body, 'body');
+
+  if (orderId) {
+    updatedOrder = updateById(orders)(orderId, body);
+  }
+
+  reply(res, updatedOrder);
+});
+
 // router.get('/dishes', (req, res, next) => {
 //   const { restaurantId, dishId } = req.query;
 //   let result = products;
@@ -90,17 +107,17 @@ router.post('/review/:restaurantId', (req, res, next) => {
   reply(res, newReview);
 });
 
-router.patch('/review/:reviewId', (req, res, next) => {
-  const body = req.body;
-  const reviewId = req.params?.reviewId;
-  let updatedReview;
+// router.patch('/review/:reviewId', (req, res, next) => {
+//   const body = req.body;
+//   const reviewId = req.params?.reviewId;
+//   let updatedReview;
 
-  if (reviewId) {
-    updatedReview = updateById(reviews)(reviewId, body);
-  }
+//   if (reviewId) {
+//     updatedReview = updateById(reviews)(reviewId, body);
+//   }
 
-  reply(res, updatedReview);
-});
+//   reply(res, updatedReview);
+// });
 
 router.get('/users', (req, res, next) => {
   reply(res, users);

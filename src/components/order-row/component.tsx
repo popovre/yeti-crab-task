@@ -1,10 +1,16 @@
 'use client';
 
 import clsx from 'clsx';
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './style.module.scss';
+import { useSelector } from 'react-redux';
+import OrderFormContainer from '../order-form/container';
 
-const OrderRow = ({ order }) => {
+const OrderRow = ({ order, onUpdate }) => {
+  const [showForm, setShowForm] = useState(false);
+
+  const admin = useSelector((state) => state.admin.admin);
+
   return (
     <div className={clsx(styles.root)}>
       <div className={clsx(styles.contentWrapper)}>
@@ -26,7 +32,18 @@ const OrderRow = ({ order }) => {
           <span>{order.status}</span>
         </div>
       </div>
-      <button onClick={() => {}}>подробнее</button>
+      {admin && (
+        <button
+          onClick={() => {
+            setShowForm(!showForm);
+          }}
+        >
+          подробнее
+        </button>
+      )}
+      {admin && showForm && (
+        <OrderFormContainer onUpdate={onUpdate} order={order} />
+      )}
     </div>
   );
 };

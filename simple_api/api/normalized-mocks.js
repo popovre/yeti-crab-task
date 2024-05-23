@@ -1,11 +1,11 @@
 const normalizedOrders = [
   {
     id: 'a757a0e9-03c1-4a2a-b384-8ac21dbe2fb2',
+    date: 1,
     clientName: 'Вкусно и точка',
     number: Math.floor(Math.random() * 99 + 1),
     driver: 'Matt',
     phone: '123456789',
-    comments: ['good', 'bad', 'cool'],
     status: 'in deliver',
     code: Math.floor(Math.random() * (10000 - 1000) * 1000),
     comments: [
@@ -17,11 +17,11 @@ const normalizedOrders = [
   {
     id: 'bb8afbec-2fec-491f-93e9-7f13950dd80b',
     number: Math.floor(Math.random() * 99 + 1),
-    driver: 'Matt',
+    driver: 'Andrew',
     phone: '123456789',
-    comments: ['good', 'bad', 'cool'],
     status: 'in deliver',
     code: Math.floor(Math.random() * (10000 - 1000) * 1000),
+    date: 2,
     clientName: 'Homeslice',
     comments: [
       '25402233-0095-49ea-9939-1e67ed89ffb9',
@@ -31,11 +31,11 @@ const normalizedOrders = [
   {
     id: '982bfbce-c5e0-41a0-9f99-d5c20ecee49d',
     number: Math.floor(Math.random() * 99 + 1),
-    driver: 'Matt',
+    driver: 'Kole',
     phone: '123456789',
-    comments: ['good', 'bad', 'cool'],
     status: 'in deliver',
     code: Math.floor(Math.random() * (10000 - 1000) * 1000),
+    date: 3,
     clientName: 'Fabrique',
     comments: [
       '08c9ffa0-d003-4310-9e15-20978743296e',
@@ -46,11 +46,11 @@ const normalizedOrders = [
   {
     id: 'd9241927-09e1-44f3-8986-a76346869037',
     number: Math.floor(Math.random() * 99 + 1),
-    driver: 'Matt',
+    driver: 'Khan',
     phone: '123456789',
-    comments: ['good', 'bad', 'cool'],
     status: 'in deliver',
     code: Math.floor(Math.random() * (10000 - 1000) * 1000),
+    date: 4,
     clientName: 'Flat Iron',
     comments: [
       '6c02c2ce-b868-4191-b4a7-8686429f4bac',
@@ -174,6 +174,7 @@ const normalizedUsers = [
     status: 'in deliver',
     code: Math.floor(Math.random() * (10000 - 1000) * 1000),
 
+    date: 1,
     clientName: 'Antony',
   },
   {
@@ -185,6 +186,7 @@ const normalizedUsers = [
     status: 'in deliver',
     code: Math.floor(Math.random() * (10000 - 1000) * 1000),
 
+    date: 1,
     clientName: 'Diana',
   },
   {
@@ -196,6 +198,7 @@ const normalizedUsers = [
     status: 'in deliver',
     code: Math.floor(Math.random() * (10000 - 1000) * 1000),
 
+    date: 1,
     clientName: 'Lolly',
   },
   {
@@ -207,6 +210,7 @@ const normalizedUsers = [
     status: 'in deliver',
     code: Math.floor(Math.random() * (10000 - 1000) * 1000),
 
+    date: 1,
     clientName: 'Agata',
   },
   {
@@ -218,6 +222,7 @@ const normalizedUsers = [
     status: 'in deliver',
     code: Math.floor(Math.random() * (10000 - 1000) * 1000),
 
+    date: 1,
     clientName: 'Rebeca',
   },
   {
@@ -229,6 +234,7 @@ const normalizedUsers = [
     status: 'in deliver',
     code: Math.floor(Math.random() * (10000 - 1000) * 1000),
 
+    date: 1,
     clientName: 'Sam',
   },
 ];
