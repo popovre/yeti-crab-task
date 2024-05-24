@@ -13,5 +13,6 @@
    pnpm i
    cd ..
    pnpm start-server
+3. Выключить КЭШ во вкладке network в браузере
 
 Документация для REST API представлена в директории ~/Documents/reps/yeti-crab-task/simple_api/README.md
