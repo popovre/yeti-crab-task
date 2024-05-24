@@ -1,0 +1,17 @@
+.adminButton {
+  // background-color: sandybrown;
+  padding: 5px;
+  outline: 2px solid var(--black1);
+  border-radius: var(--mobile-low-border-radius);
+
+  transition: border-radius 0.3s, background-color 0.3s ease-in-out,
+    opacity 0.3s ease-in-out;
+  &:hover {
+    opacity: 0.6;
+    border-radius: 10px;
+  }
+}
+
+.admin {
+  background-color: tomato;
+}

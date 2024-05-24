@@ -1,0 +1,29 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  padding-block: 1rem;
+  padding-inline: 2rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 15px;
+
+  &:last-child {
+    align-self: center;
+    max-width: 30%;
+  }
+}
+
+.input {
+  padding: 0.5rem;
+  font-family: var(--second-font);
+  font-size: 18px;
+  border: none;
+  background-color: blanchedalmond;
+  outline: dotted 1px blueviolet;
+  border-radius: 10px;
+}
