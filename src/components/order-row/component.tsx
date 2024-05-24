@@ -5,21 +5,40 @@ import React, { useState } from 'react';
 import styles from './style.module.scss';
 import { useSelector } from 'react-redux';
 import OrderFormContainer from '../order-form/container';
-import Loader from '../loader/component';
 
-const OrderRow = ({ order, onUpdate, onGetContent }) => {
+const OrderRow = ({ order, onUpdate, onGetContent, deleteOrder }) => {
   const [showForm, setShowForm] = useState(false);
 
   const handleMoreButtonClick = () => {
     setShowForm(!showForm);
   };
 
+  const handleDeleteClick = () => {
+    deleteOrder(order.id)
+      .then(() => {
+        console.log('deleted');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const admin = useSelector((state) => state.admin.admin);
 
   return (
     <div className={clsx(styles.root)}>
+      {admin && (
+        <button
+          className={clsx(styles.deleteButton)}
+          onClick={() => {
+            handleDeleteClick();
+          }}
+        >
+          Удалить заявку
+        </button>
+      )}
       <div className={clsx(styles.contentWrapper)}>
-        <div>
+        <div className={clsx(styles.number)}>
           <span>Number:</span>
           <span>{order?.number}</span>
         </div>
@@ -32,6 +51,10 @@ const OrderRow = ({ order, onUpdate, onGetContent }) => {
             <span>Date:</span>
             <span>{order?.date}</span>
           </div>
+          <div>
+            <span>ATI:</span>
+            <span>{order?.code}</span>
+          </div>
         </div>
         <div className={clsx(styles.status)}>
           <span>{order?.status}</span>
@@ -39,6 +62,7 @@ const OrderRow = ({ order, onUpdate, onGetContent }) => {
       </div>
       {admin && (
         <button
+          className={clsx(styles.buttonMore, { [styles.active]: showForm })}
           onClick={() => {
             handleMoreButtonClick();
           }}

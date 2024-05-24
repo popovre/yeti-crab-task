@@ -1,6 +1,10 @@
 import React from 'react';
 import OrderRow from './component';
-import { getOrderContentById, updateOrderById } from '@/services/api';
+import {
+  deleteOrderById,
+  getOrderContentById,
+  updateOrderById,
+} from '@/services/api';
 
 const OrderRowContainer = async (props) => {
   const onUpdate = async (contentId, updatedContent) => {
@@ -13,8 +17,18 @@ const OrderRowContainer = async (props) => {
     return await getOrderContentById(contentId);
   };
 
+  const deleteOrder = async (orderId) => {
+    'use server';
+    await deleteOrderById(orderId);
+  };
+
   return (
-    <OrderRow {...props} onUpdate={onUpdate} onGetContent={onGetContent} />
+    <OrderRow
+      {...props}
+      deleteOrder={deleteOrder}
+      onUpdate={onUpdate}
+      onGetContent={onGetContent}
+    />
   );
 };
 

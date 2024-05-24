@@ -15,12 +15,9 @@ const OrderForm = ({ content, onUpdate }) => {
   const [loader, setLoader] = useState(false);
 
   const handleUpdateClick = () => {
-    console.log('click');
     setLoader(true);
-    console.log(content.id, 'id');
     onUpdate(content.id, form)
       .then((resolve) => {
-        console.log('then');
         setLoader(false);
       })
       .catch((error) => {
@@ -30,9 +27,9 @@ const OrderForm = ({ content, onUpdate }) => {
   };
 
   return loader ? (
-    <Loader />
+    <Loader classNames={['insideOrderContent']} />
   ) : (
-    <div>
+    <div className={clsx(styles.root)}>
       <div className={clsx(styles.field)}>
         <label htmlFor="driver">Driver</label>
         <input

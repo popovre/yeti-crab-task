@@ -22,7 +22,7 @@ const OrderFormContainer = ({ contentId, onUpdate, onGetContent }) => {
   return content ? (
     <OrderForm content={content} onUpdate={onUpdate} />
   ) : (
-    <Loader />
+    <Loader classNames={[]} />
   );
 };
 

@@ -13,4 +13,19 @@ const updateById = (entities) => (id, data) => {
   return entities[index];
 };
 
-module.exports = { reply, getById, updateById };
+const deleteById = (entities, contents) => (id) => {
+  const index = entities.findIndex((entity) => entity.id === id);
+
+  if (index !== undefined) {
+    const contentIndex = contents.findIndex(
+      (content) => content.id === entities[index].content
+    );
+    if (contentIndex !== undefined) {
+      const newlog = contents.splice(contentIndex, 1);
+    }
+
+    entities.splice(index, 1);
+  }
+};
+
+module.exports = { reply, getById, updateById, deleteById };

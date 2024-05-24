@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   padding-block: 1rem;
+  padding-inline: 1rem;
 }
 
 .contentWrapper {
@@ -13,8 +14,50 @@
 }
 
 .data {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+
   width: 100%;
   border-left: 2px dashed var(--black1);
   border-right: 2px dashed var(--black1);
   padding-inline: 1rem;
+}
+
+.number {
+  align-self: center;
+}
+
+.status {
+  align-self: center;
+}
+
+.buttonMore {
+  align-self: center;
+  padding: 5px;
+  border-radius: var(--mobile-low-border-radius);
+  outline: 2px solid var(--black1);
+  transition: border-radius 0.3s, background-color 0.3s ease-in-out,
+    opacity 0.3s ease-in-out;
+  &:hover {
+    opacity: 0.6;
+    border-radius: 10px;
+  }
+}
+
+.deleteButton {
+  align-self: flex-end;
+  padding: 5px;
+  border-radius: var(--mobile-low-border-radius);
+  outline: 2px solid var(--black1);
+  transition: border-radius 0.3s, background-color 0.3s ease-in-out,
+    opacity 0.3s ease-in-out;
+  &:hover {
+    opacity: 0.6;
+    border-radius: 10px;
+  }
+}
+
+.active {
+  background-color: tomato;
 }

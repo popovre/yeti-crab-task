@@ -2,8 +2,9 @@ import clsx from 'clsx';
 import OrderRowContainer from '../order-row/container';
 import styles from './style.module.scss';
 import AmountCounter from '../amount-counter/component';
+import AddButton from '../add-button/component';
 
-const Table = ({ orders, initialAmount }) => {
+const Table = ({ orders, initialAmount, createNewOrder }) => {
   return (
     <div className={clsx(styles.root)}>
       <AmountCounter initialAmount={initialAmount} />
@@ -14,6 +15,7 @@ const Table = ({ orders, initialAmount }) => {
           </li>
         ))}
       </ul>
+      <AddButton createNewOrder={createNewOrder}>Добавить заявку</AddButton>
     </div>
   );
 };
