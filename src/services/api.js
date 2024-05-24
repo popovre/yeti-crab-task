@@ -44,7 +44,6 @@ export const deleteOrderById = async (orderId) => {
   const requestOptions = {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
-    // body: JSON.stringify(orderId),
   };
 
   await fetch(`${BASE_URL}/order/${orderId}`, requestOptions);

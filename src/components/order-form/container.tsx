@@ -9,7 +9,6 @@ const OrderFormContainer = ({ contentId, onUpdate, onGetContent }) => {
   const [content, setContent] = useState();
 
   useEffect(() => {
-    console.log('use effect');
     onGetContent(contentId)
       .then((data) => {
         setContent(data);

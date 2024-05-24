@@ -21,15 +21,6 @@ const OrderRow = ({
   const [showForm, setShowForm] = useState(false);
   const [isDropDown, setIsDropDown] = useState(false);
   const dispatch = useDispatch();
-  console.log('render', order.status);
-
-  // useEffect(() => {
-  //   console.log('effect', order.status);
-  //   dispatch(setStatus());
-  // }, [order]);
-
-  // const status = useSelector((state) => state.orderStatus.orderStatus);
-  // console.log(status, 'status Order');
 
   const handleMoreButtonClick = () => {
     setShowForm(!showForm);
@@ -37,9 +28,7 @@ const OrderRow = ({
 
   const handleDeleteClick = () => {
     deleteOrder(order.id)
-      .then(() => {
-        console.log('deleted');
-      })
+      .then(() => {})
       .catch((error) => {
         console.log(error);
       });

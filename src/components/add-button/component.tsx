@@ -7,11 +7,9 @@ const AddButton = ({ children, createNewOrder }) => {
   const [loader, setLoader] = useState(false);
 
   const handleButtonClick = () => {
-    console.log('post');
     setLoader(true);
     createNewOrder()
       .then((resolve) => {
-        console.log('then');
         setLoader(false);
       })
       .catch((error) => {

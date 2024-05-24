@@ -5,7 +5,6 @@ import styles from './style.module.scss';
 import Loader from '../loader/component';
 
 const OrderForm = ({ content, onUpdate }) => {
-  console.log('render', content);
   const initialState = { ...content };
   const { form, setPhone, setClientName, setDriver } = useReviewForm(
     initialState,
