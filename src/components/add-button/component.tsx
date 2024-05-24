@@ -2,9 +2,11 @@
 
 import { useState } from 'react';
 import Loader from '../loader/component';
+import { useSelector } from 'react-redux';
 
 const AddButton = ({ children, createNewOrder }) => {
   const [loader, setLoader] = useState(false);
+  const admin = useSelector((state) => state.admin.admin);
 
   const handleButtonClick = () => {
     setLoader(true);
@@ -21,13 +23,15 @@ const AddButton = ({ children, createNewOrder }) => {
   return loader ? (
     <Loader />
   ) : (
-    <button
-      onClick={() => {
-        handleButtonClick();
-      }}
-    >
-      {children}
-    </button>
+    admin && (
+      <button
+        onClick={() => {
+          handleButtonClick();
+        }}
+      >
+        {children}
+      </button>
+    )
   );
 };
 
