@@ -28,6 +28,7 @@ export default function RootLayout({
         </StoreProvider>
         <div id="modal-container" />
         <div id="popover-container" />
+        <div id="dropdown-container" />
       </body>
     </html>
   );

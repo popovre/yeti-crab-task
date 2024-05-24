@@ -50,3 +50,14 @@ export const deleteOrderById = async (orderId) => {
   await fetch(`${BASE_URL}/order/${orderId}`, requestOptions);
   revalidateTag('order');
 };
+
+export const updateOrderStatusByOrderId = async (orderId, status) => {
+  const requestOptions = {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(status),
+  };
+
+  await fetch(`${BASE_URL}/order/status/${orderId}`, requestOptions);
+  revalidateTag('order');
+};

@@ -1,7 +1,13 @@
 const router = require('express').Router();
 const { nanoid } = require('nanoid');
 const { orders, comments, contents } = require('./normalized-mocks');
-const { reply, getById, updateById, deleteById } = require('./utils');
+const {
+  reply,
+  getById,
+  updateById,
+  deleteById,
+  updateStatusById,
+} = require('./utils');
 
 router.get('/orders', (req, res, next) => {
   console.log('request');
@@ -61,6 +67,17 @@ router.patch('/content/:contentId', (req, res, next) => {
   reply(res, updatedOrder);
 });
 
+router.patch('/order/status/:orderId', (req, res, next) => {
+  const orderId = req.params?.orderId;
+  const body = req.body;
+
+  if (orderId) {
+    updateStatusById(orders)(orderId, body);
+  }
+
+  reply(res);
+});
+
 router.delete('/order/:orderId', (req, res, next) => {
   const orderId = req.params?.orderId;
   const body = req.body;
@@ -78,7 +95,7 @@ router.post('/order', (req, res, next) => {
   let newOrder = {
     id: nanoid(),
     code: Math.floor(Math.random() * (10000 - 1000) * 1000),
-    status: 'in deliver',
+    status: 'В работе',
     date: Date.now(),
     number: Math.floor(Math.random() * 99 + 1),
 

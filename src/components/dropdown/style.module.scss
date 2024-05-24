@@ -1,0 +1,18 @@
+.root {
+  position: absolute;
+  z-index: 2;
+  padding: 1rem;
+
+  outline: 2px solid var(--black1);
+  border-radius: var(--mobile-low-border-radius);
+
+  background-color: var(--bg-color);
+
+  top: 50px;
+}
+
+.button {
+  position: relative;
+  width: 100%;
+  border-bottom: 2px dashed var(--asc-text);
+}

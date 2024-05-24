@@ -1,13 +1,35 @@
 'use client';
 
 import clsx from 'clsx';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './style.module.scss';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import OrderFormContainer from '../order-form/container';
+import Link from 'next/link';
+import DropdownContainer from '../dropdown/container';
+import ClientOnlyPortal from '../portal/container';
+import StatusMenu from '../status-menu/component';
+import { setStatus } from '@/redux/slices/order-status';
 
-const OrderRow = ({ order, onUpdate, onGetContent, deleteOrder }) => {
+const OrderRow = ({
+  order,
+  onUpdate,
+  onGetContent,
+  deleteOrder,
+  updateStatus,
+}) => {
   const [showForm, setShowForm] = useState(false);
+  const [isDropDown, setIsDropDown] = useState(false);
+  const dispatch = useDispatch();
+  console.log('render', order.status);
+
+  // useEffect(() => {
+  //   console.log('effect', order.status);
+  //   dispatch(setStatus());
+  // }, [order]);
+
+  // const status = useSelector((state) => state.orderStatus.orderStatus);
+  // console.log(status, 'status Order');
 
   const handleMoreButtonClick = () => {
     setShowForm(!showForm);
@@ -51,13 +73,32 @@ const OrderRow = ({ order, onUpdate, onGetContent, deleteOrder }) => {
             <span>Date:</span>
             <span>{order?.date}</span>
           </div>
-          <div>
+          <Link
+            className={clsx(styles.linkAti)}
+            target={'_blank'}
+            href={`https://ati.su/firms/${order.code}/info`}
+          >
             <span>ATI:</span>
             <span>{order?.code}</span>
-          </div>
+          </Link>
         </div>
         <div className={clsx(styles.status)}>
-          <span>{order?.status}</span>
+          <button
+            onClick={() => {
+              if (admin) setIsDropDown(!isDropDown);
+            }}
+          >
+            {order?.status}
+          </button>
+          {isDropDown && (
+            <DropdownContainer onClose={() => setIsDropDown(false)}>
+              <StatusMenu
+                status={order?.status}
+                orderId={order.id}
+                updateStatus={updateStatus}
+              />
+            </DropdownContainer>
+          )}
         </div>
       </div>
       {admin && (

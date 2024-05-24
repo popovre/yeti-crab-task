@@ -13,6 +13,11 @@ const updateById = (entities) => (id, data) => {
   return entities[index];
 };
 
+const updateStatusById = (entities) => (id, data) => {
+  const index = entities.findIndex((entity) => entity.id === id);
+  entities[index] = { ...entities[index], ...data };
+};
+
 const deleteById = (entities, contents) => (id) => {
   const index = entities.findIndex((entity) => entity.id === id);
 
@@ -28,4 +33,4 @@ const deleteById = (entities, contents) => (id) => {
   }
 };
 
-module.exports = { reply, getById, updateById, deleteById };
+module.exports = { reply, getById, updateById, deleteById, updateStatusById };

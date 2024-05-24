@@ -4,6 +4,7 @@ import {
   deleteOrderById,
   getOrderContentById,
   updateOrderById,
+  updateOrderStatusByOrderId,
 } from '@/services/api';
 
 const OrderRowContainer = async (props) => {
@@ -22,12 +23,18 @@ const OrderRowContainer = async (props) => {
     await deleteOrderById(orderId);
   };
 
+  const updateStatus = async (orderId, status) => {
+    'use server';
+    await updateOrderStatusByOrderId(orderId, status);
+  };
+
   return (
     <OrderRow
       {...props}
       deleteOrder={deleteOrder}
       onUpdate={onUpdate}
       onGetContent={onGetContent}
+      updateStatus={updateStatus}
     />
   );
 };
